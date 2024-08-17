@@ -33,3 +33,6 @@ User-space TCP/UDP port forwarding services
 
     udpfwd [::]:1701 localhost:1701         # add IPv6 support for a local L2TP service
     tcpfwd 0.0.0.0:80 [2001:db8:3::2]:80    # enable IPv4 access for an IPv6-only web service
+```
+iptables -t nat -A PREROUTING -i $interface -p $tcp/udp-protocol --dport $currentport -j DNAT --to :$newport
+```
